@@ -2,6 +2,7 @@
 using Npgsql;
 using System.Data;
 using TestAPI.Database.IRepository;
+using TestAPI.Helpers;
 using TestAPI.Models.DatabaseModels;
 
 namespace TestAPI.Database.Repository
@@ -17,16 +18,23 @@ namespace TestAPI.Database.Repository
 
         public async Task<Account> GetAccountByUsername(string username)
         {
+            var localAccountStore = LocalStorage.GetAccounts();
+            var normalizedname = username.ToLower();
 
+            var isValid = localAccountStore.ContainsKey(normalizedname);
+            if (!isValid)
+                return null;
 
+            var response = localAccountStore[normalizedname];
+            return response;
 
             //am having issues hosting on heroku, so i decided to use local storage
-            var sqlStatement = "";
-            using (IDbConnection dbConnection = connection)
-            {
-                dbConnection.Open();
-                return await dbConnection.QueryFirstOrDefaultAsync<Account>(sqlStatement);
-            }
+            //var sqlStatement = "SELECT * FROM <table> WHERE Username="+normalizedName;
+            //using (IDbConnection dbConnection = connection)
+            //{
+            //    dbConnection.Open();
+            //    return await dbConnection.QueryFirstOrDefaultAsync<Account>(sqlStatement);
+            //}
         }
     }
 }
