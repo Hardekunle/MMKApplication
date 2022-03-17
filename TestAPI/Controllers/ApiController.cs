@@ -21,12 +21,12 @@ namespace TestAPI.Controllers
             _cacheService = cacheService;
         }
 
-        [HttpGet]
-        [Route("tester")]
-        public IActionResult CheckAction()
-        {
-            return Ok("This is it here");
-        }
+        //[HttpGet]
+        //[Route("tester")]
+        //public IActionResult CheckAction()
+        //{
+        //    return Ok("This is it here");
+        //}
 
 
         [HttpPost]
