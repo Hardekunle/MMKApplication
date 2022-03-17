@@ -1,12 +1,20 @@
 using TestAPI.Database.IRepository;
 using TestAPI.Database.Repository;
+using TestAPI.Models.ClientModels;
 using TestAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().ConfigureApiBehaviorOptions(x =>
+{
+    x.InvalidModelStateResponseFactory = context =>
+    {
+        var result = new UnprocessableModel(context.ModelState);
+        return result;
+    };
+});
 
 //builder.Services.AddStackExchangeRedisCache(opt => {opt.Configuration = "localhost:6379";})
 builder.Services.AddStackExchangeRedisCache(opt => {

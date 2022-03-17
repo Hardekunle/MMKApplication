@@ -38,7 +38,7 @@ namespace TestAPI.Controllers
                 int? authUserId = await _authService.ValidateUser(HttpContext.Request);
                 if (authUserId == null) return StatusCode(403);
 
-                var result = await _messageService.InBoundRequest(1,inboundSMS);
+                var result = await _messageService.InBoundRequest(authUserId.Value,inboundSMS);
 
                 return StatusCode(200, new ResponseDTO { Message = "inbound sms ok", Error="" });
             }
@@ -59,7 +59,7 @@ namespace TestAPI.Controllers
                 int? authUserId = await _authService.ValidateUser(HttpContext.Request);
                 if (authUserId == null) return StatusCode(403);
 
-                var result = await _messageService.OutBoundRequest(1, outBoundSMS);
+                var result = await _messageService.OutBoundRequest(authUserId.Value, outBoundSMS);
 
                 return StatusCode(200, new { Message = "outbound sms ok", Error="" });
 
