@@ -22,7 +22,7 @@ namespace TestAPI.Services
         }
         public async Task<bool> InBoundRequest(int loggedInUserId, SMSDTO request)
         {
-            //await ValidatePhoneRecord(loggedInUserId, request.From);
+            await ValidatePhoneRecord(loggedInUserId, request.From);
 
             if (request.Text.CheckMatchingRule("STOP"))
             {
@@ -39,7 +39,7 @@ namespace TestAPI.Services
             var trackerKey = Generators.GenerateTrackerKey(request.From);
             var messageKey = Generators.GeneratePhoneCacheKey(request.From, request.To);
 
-            //await ValidatePhoneRecord(loggedInUserId, request.From, KeyActor.from);
+            await ValidatePhoneRecord(loggedInUserId, request.From, KeyActor.from);
             await ValidateCachedData(messageKey);
             await ValidateRequestCount(request, trackerKey);
 
