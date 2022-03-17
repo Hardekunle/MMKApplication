@@ -26,7 +26,7 @@ namespace TestAPI.Services
 
             if (request.Text.CheckMatchingRule("STOP"))
             {
-                string cacheKey = Generators.GeneratePhoneCacheKey(request.From, request.To);
+                string cacheKey = Generators.GeneratePhoneCacheKey(request.To, request.To);
                 await _cache.SetCacheValueAsync(cacheKey, request, new TimeSpan(0,phoneCacheExpiryTime,0));
             }
 
