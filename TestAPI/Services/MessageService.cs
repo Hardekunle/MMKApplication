@@ -10,9 +10,9 @@ namespace TestAPI.Services
         private readonly IPhoneBookRepo _phoneBookDB;
         private readonly IAccountRepo _accountRepo;
         private readonly ICacheService _cache;
-        private const int phoneCacheExpiryTime = 3;//in minutes
-        private const int requestLimitVal = 5;
-        private const int requestLimitPeriod = 5; //in minutes
+        private const int phoneCacheExpiryTime = 240;//in minutes
+        private const int requestLimitVal = 50;
+        private const int requestLimitPeriod = 1440; //in minutes
 
         public MessageService(IPhoneBookRepo phoneBookDB, ICacheService cacheService, IAccountRepo accountRepo)
         {
