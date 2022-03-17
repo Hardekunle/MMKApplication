@@ -11,5 +11,14 @@ MMKApplication is a .net core application used for message management.
 - npqsl v6.0.3
 - Dapper ORM v2.0.123
 ```
+
+## Testing
+```
+# testing can be done on the endpoints using the 
+- baseURL + /api/inbound/sms 
+- baseURL + /api/outbound/sms
+
+```
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
