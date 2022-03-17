@@ -12,7 +12,7 @@ namespace TestAPI.Models.ClientModels
     public class UnprocessableModel : ObjectResult
     {
         public UnprocessableModel(ModelStateDictionary model)
-            : base(model.Keys.SelectMany(x => model[x].Errors.Select(y => new ResponseDTO { Error= y.ErrorMessage, Message=x })))
+            : base(model.Keys.SelectMany(x => model[x].Errors.Select(y => new ResponseDTO { Error= y.ErrorMessage, Message="" })))
         {
             StatusCode = 400;
         }
