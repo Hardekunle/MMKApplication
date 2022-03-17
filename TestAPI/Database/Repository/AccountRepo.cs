@@ -17,7 +17,10 @@ namespace TestAPI.Database.Repository
 
         public async Task<Account> GetAccountByUsername(string username)
         {
-            return new Account { Id = 23, Auth_Id = "Adekunle1", Username = "Adekunle" };
+
+
+
+            //am having issues hosting on heroku, so i decided to use local storage
             var sqlStatement = "";
             using (IDbConnection dbConnection = connection)
             {
