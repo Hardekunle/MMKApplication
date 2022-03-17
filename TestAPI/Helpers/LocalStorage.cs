@@ -25,7 +25,7 @@ namespace TestAPI.Helpers
 
             dummydata.Add(1, new PhoneBook {Id=1, Account_Id=1, Number= "4924195509198" });
             dummydata.Add(2, new PhoneBook { Id = 1, Account_Id = 1, Number = "4924195509196" });
-            dummydata.Add(3, new PhoneBook { Id = 1, Account_Id = 1, Number = "4924195509196" });
+            dummydata.Add(3, new PhoneBook { Id = 1, Account_Id = 1, Number = "4924195509197" });
             dummydata.Add(4, new PhoneBook { Id = 1, Account_Id = 1, Number = "4924195509195" });
             dummydata.Add(5, new PhoneBook { Id = 1, Account_Id = 1, Number = "4924195509049" });
             dummydata.Add(6, new PhoneBook { Id = 1, Account_Id = 1, Number = "4924195509012" });
