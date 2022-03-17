@@ -22,11 +22,11 @@ namespace TestAPI.Services
         }
         public async Task<bool> InBoundRequest(int loggedInUserId, SMSDTO request)
         {
-            await ValidatePhoneRecord(loggedInUserId, request.From);
+            await ValidatePhoneRecord(loggedInUserId, request.To);
 
             if (request.Text.CheckMatchingRule("STOP"))
             {
-                string cacheKey = Generators.GeneratePhoneCacheKey(request.To, request.To);
+                string cacheKey = Generators.GeneratePhoneCacheKey(request.From, request.To);
                 await _cache.SetCacheValueAsync(cacheKey, request, new TimeSpan(0,phoneCacheExpiryTime,0));
             }
 
